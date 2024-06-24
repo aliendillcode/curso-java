@@ -5,10 +5,11 @@ import java.util.List;
 import java.util.Objects;
 
 /*esta é nossa classe/objeto que representa o Aluno*/
-public class Aluno {
-    private String nome;
-    private int idade;
-    private String dataNascimento;
+public class Aluno extends Pessoa {
+
+    private String dataMatricula;
+    private String nomeEscola;
+    private String SerieMatricula;
     private double media;
     private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
@@ -29,9 +30,16 @@ public class Aluno {
         this.media = somaNotas / disciplinas.size();
     }
 
-    public boolean getStatus(double media){
-
-        return this.getMedia() > media;
+    public String getStatus(){
+        if(this.getMedia() > 5){
+            if(this.getMedia() > 7 ){
+                return "Aprovado";
+            }else{
+                return "Em recuperação";
+            }
+        }else{
+            return "Reprovado";
+        }
     }
 
     public String getNome() {
@@ -96,5 +104,10 @@ public class Aluno {
                 ", media=" + media +
                 ", disciplinas=" + disciplinas +
                 '}';
+    }
+
+    @Override
+    public boolean pessoaMaiorIdade() {
+        return super.pessoaMaiorIdade();
     }
 }
