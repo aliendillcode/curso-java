@@ -2,35 +2,20 @@ package cursojava.executavel;
 
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
+import cursojava.classes.Secretario;
+import cursojava.interfaces.PermitirAcesso;
 
 import javax.swing.*;
 import java.util.List;
 
 public class PrimeiraClasseJava {
     public static void main(String[] args) {
+        String login = JOptionPane.showInputDialog("Informe seu login");
+        String senha = JOptionPane.showInputDialog("Informa sua Senha");
 
-        String nome = JOptionPane.showInputDialog("Qual o nome do aluno: ");
-        Aluno aluno = new Aluno(nome, 23, "03/10/2001" );
-
-        for(int pos = 1; pos <=4; pos++){
-            String nomeDisciplina = JOptionPane.showInputDialog("Disciplina "+pos+" ?");
-            String notaDisciplina = JOptionPane.showInputDialog("Nota: ");
-
-            Disciplina disciplina = new Disciplina();
-            disciplina.setDisciplina(nomeDisciplina);
-            disciplina.setNota(Double.valueOf(notaDisciplina));
-            aluno.getDisciplinas().add(disciplina);
-        }
+        PermitirAcesso permitirAcesso = new Secretario(login, senha);
 
 
-
-        aluno.CalcMedia();
-        System.out.printf("Aluno: %s Média: %.2f Status: %s",
-                aluno.getNome(),
-                aluno.getMedia(),
-                aluno.getStatus());
-
-
-
+        System.out.println(permitirAcesso.autenticar()?"Bem vindo ao sistema":"Usuário ou senha inválido");;
     }
 }
