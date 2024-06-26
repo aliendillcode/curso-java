@@ -1,5 +1,6 @@
 package cursojava.executavel;
 
+import cursojava.auxiliares.FuncaoAutenticacao;
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
 import cursojava.classes.Secretario;
@@ -13,9 +14,9 @@ public class PrimeiraClasseJava {
         String login = JOptionPane.showInputDialog("Informe seu login");
         String senha = JOptionPane.showInputDialog("Informa sua Senha");
 
-        PermitirAcesso permitirAcesso = new Secretario(login, senha);
 
-
-        System.out.println(permitirAcesso.autenticar()?"Bem vindo ao sistema":"Usuário ou senha inválido");;
+        System.out.println(
+                new FuncaoAutenticacao(new Secretario(login, senha))
+                        .autenticar()?"Bem vindo ao sistema":"Usuário ou senha inválido");;
     }
 }
