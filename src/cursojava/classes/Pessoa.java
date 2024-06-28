@@ -10,7 +10,7 @@ public abstract class Pessoa {
     protected String nomePai;
 
 
-    public String getNome() {
+    public Object getNome() {
         return nome;
     }
 

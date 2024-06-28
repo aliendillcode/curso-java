@@ -14,10 +14,10 @@ public class Aluno extends Pessoa {
     private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
     public Aluno(){}
-    public Aluno(String nome, int idade, String dataNascimento ){
+    public Aluno(String nome, int idade){
         this.nome = nome;
         this.idade = idade;
-        this.dataNascimento = dataNascimento;
+
 
     }
 
@@ -42,7 +42,7 @@ public class Aluno extends Pessoa {
         }
     }
 
-    public String getNome() {
+    public Object getNome() {
         return nome;
     }
 
